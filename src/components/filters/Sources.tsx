@@ -22,7 +22,7 @@ const Sources: React.FC<SourceProps> = ({ sources, onSourceChange }) => {
             <input
               type="radio"
               id={`source-${source}`}
-              name="source" // Important for radio group
+              name="source"
               value={source}
               checked={source === selectedSource}
               onChange={handleRadioChange}

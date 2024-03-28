@@ -25,7 +25,7 @@ const Categories: React.FC<CategoriesGroupProps> = ({
             <input
               type="radio"
               id={`category-${category}`}
-              name="category" // Important for radio group behavior
+              name="category"
               value={category.toLowerCase()}
               checked={category.toLowerCase() === selectedCategory}
               onChange={handleRadioChange}

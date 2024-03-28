@@ -7,12 +7,9 @@ const Categories: React.FC<CategoriesGroupProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-
-    setSelectedCategory(value === selectedCategory ? null : value);
-  
-  
+    setSelectedCategory(value);
   };
 
   useEffect(() => {
@@ -26,11 +23,12 @@ const Categories: React.FC<CategoriesGroupProps> = ({
         {categories.map((category) => (
           <div key={category} className="flex items-center mb-2">
             <input
-              type="checkbox"
+              type="radio"
               id={`category-${category}`}
+              name="category" // Important for radio group behavior
               value={category.toLowerCase()}
               checked={category.toLowerCase() === selectedCategory}
-              onChange={handleCheckboxChange}
+              onChange={handleRadioChange}
             />
             <label htmlFor={`category-${category}`} className="ml-2">
               {category}

@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { SourceProps } from "../../typing";
 
+const Sources: React.FC<SourceProps> = ({ sources, onSourceChange }) => {
+  const [selectedSource, setSelectedSource] = useState<string | null>(null);
 
-
-const Sources: React.FC<SourceProps> = ({
-    sources,
-  onSourceChange,
-}) => {
-  const [selectedCategory, setSelectedSource] = useState<string | null>(null);
-
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-
-    setSelectedSource(value === selectedCategory ? null : value);
+    setSelectedSource(value);
   };
 
   useEffect(() => {
-    onSourceChange(selectedCategory ? [selectedCategory] : []);
-  }, [selectedCategory, onSourceChange]);
+    onSourceChange(selectedSource ? [selectedSource] : []);
+  }, [selectedSource, onSourceChange]);
 
   return (
     <div className="mb-4">
@@ -26,11 +20,12 @@ const Sources: React.FC<SourceProps> = ({
         {sources.map((source) => (
           <div key={source} className="flex items-center mb-2">
             <input
-              type="checkbox"
+              type="radio"
               id={`source-${source}`}
+              name="source" // Important for radio group
               value={source}
-              checked={source === selectedCategory}
-              onChange={handleCheckboxChange}
+              checked={source === selectedSource}
+              onChange={handleRadioChange}
             />
             <label htmlFor={`source-${source}`} className="ml-2">
               {source}

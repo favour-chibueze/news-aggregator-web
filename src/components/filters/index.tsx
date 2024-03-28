@@ -6,7 +6,7 @@ import { clearArticles } from "../../redux/actions";
 import { fetchArticles } from "../../redux/articlesSlice";
 import DateRangePicker from "./DateRange";
 import Categories from "./Categories";
-import { categories, sources } from "../../Infrastructure/constants";
+import { categories, sources } from "../../infrastructure/constants";
 import Sources from "./Sources";
 import { Payload } from "../../typing";
 

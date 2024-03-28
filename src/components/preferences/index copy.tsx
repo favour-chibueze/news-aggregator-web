@@ -6,14 +6,14 @@ interface Props {
   preferences: Preferences;
   updatePreference: (
     preferenceType: keyof Preferences,
-    preference: string,
+    preference: string
   ) => void;
 }
 
 const NewsPreferences = ({ preferences, updatePreference }: Props) => {
   const handlePreferencesChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    preferenceType: keyof Preferences,
+    preferenceType: keyof Preferences
   ) => {
     const preference = e.target.value;
     updatePreference(preferenceType, preference);
@@ -33,7 +33,7 @@ const NewsPreferences = ({ preferences, updatePreference }: Props) => {
                   id={`category-${category}`}
                   value={category.toLowerCase()}
                   checked={preferences.categoriesPreference.includes(
-                    category.toLowerCase(),
+                    category.toLowerCase()
                   )}
                   onChange={(e) =>
                     handlePreferencesChange(e, "categoriesPreference")
@@ -57,7 +57,7 @@ const NewsPreferences = ({ preferences, updatePreference }: Props) => {
                   id={`author-${author}`}
                   value={author.toLowerCase()}
                   checked={preferences.authorsPreference.includes(
-                    author.toLowerCase(),
+                    author.toLowerCase()
                   )}
                   onChange={(e) =>
                     handlePreferencesChange(e, "authorsPreference")

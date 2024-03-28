@@ -1,5 +1,5 @@
 import ArticleCard from "../articles/ArticleCard";
-import NavBar from "./NavBar/index";
+import NavBar from "./navbar/index";
 import Sidebar from "./SideBar";
 
 const Layout = () => {

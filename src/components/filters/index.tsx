@@ -77,10 +77,6 @@ const Filters = () => {
     <div>
       <div className="mb-4 flex justify-between items-center md:block">
         <h2 className="font-bold text-lg ">Filters</h2>
-
-        <button className="bg-sky-400/100  text-white font-bold py-2 px-4 rounded  md:hidden block">
-          Button
-        </button>
       </div>
       <DateRangePicker onQueryStringChange={handleQueryStringChange} />
       <div className="flex justify-center gap-4 md:block">

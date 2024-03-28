@@ -1,5 +1,5 @@
 import React from "react";
-import { categories, sources, authors } from "../../infrastructure/constants";
+import { categories, sources, authors } from "../../Infrastructure/constants";
 import { Preferences } from "../../hooks/usePreferences";
 
 interface Props {

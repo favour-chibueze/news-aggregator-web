@@ -14,7 +14,7 @@ const Sources: React.FC<SourceProps> = ({ sources, onSourceChange }) => {
   }, [selectedSource, onSourceChange]);
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-44">
       <label className="block text-sm font-medium mb-2">Source</label>
       <div>
         {sources.map((source) => (

@@ -16,7 +16,7 @@ const Feeds: React.FC = () => {
       </nav>
 
       <div>
-        <MyFeeds/>
+        <MyFeeds />
       </div>
     </div>
   );

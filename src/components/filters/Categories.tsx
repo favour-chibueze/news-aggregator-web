@@ -17,7 +17,7 @@ const Categories: React.FC<CategoriesGroupProps> = ({
   }, [selectedCategory, onCategoryChange]);
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-44">
       <label className="block text-sm font-medium mb-2">Category</label>
       <div>
         {categories.map((category) => (

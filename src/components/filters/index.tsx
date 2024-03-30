@@ -10,7 +10,12 @@ import { categories, sources } from "../../Infrastructure/constants";
 import Sources from "./Sources";
 import { Payload } from "../../typing";
 
-const Filters = () => {
+interface FiltersProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+const Filters = ({ show, onClose }: FiltersProps) => {
   const [dateQuery, setDateQuery] = useState<{
     start_date: string;
     end_date: string;
@@ -72,21 +77,35 @@ const Filters = () => {
     }
   }, [source, categoryQuery, dateQuery, payload]);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [selectedValues, setSelectedValues] = useState([]);
+  const handleDoneClick = () => {
+    onClose();
+  };
+
   return (
     <div>
       <div className="mb-4 flex justify-between items-center md:block">
         <h2 className="font-bold text-lg ">Filters</h2>
+        <div className="sm:hidden flex justify-end ">
+          <button
+            type="button"
+            onClick={handleDoneClick}
+            className="bg-sky-400/100 py-1 px-2 rounded-md text-sm text-white hover:bg-blue-700 focus:outline-none"
+          >
+            Done
+          </button>
+        </div>
       </div>
       <DateRangePicker onQueryStringChange={handleQueryStringChange} />
-      <div className="flex justify-center gap-4 md:block">
+      <div className="flex gap-4 md:block">
         <Categories
           categories={categories}
           onCategoryChange={handleCategoryChange}
         />
 
         <Sources sources={sources} onSourceChange={handleSourceChange} />
-      </div>
+
+        </div>
     </div>
   );
 };
